@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header">Wallet List</div>
+  <div class="card-body">
+    <table class="table table-bordered table-sm">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Transactions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wallet of walletList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ wallet.name }}</td>
+          <td>{{ wallet.value }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-success"
+              [routerLink]="['/updateWallet', wallet.id]"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-sm btn-secondary"
+              (click)="delete(wallet.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
